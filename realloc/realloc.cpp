@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <windows.h>
 
 using namespace std;
@@ -25,13 +25,19 @@ int main()
     }
 
     cout << "\nСкільки хочете елементів у масиві тепер: \n";
-    cin >> Count;
-    p = (char*)realloc(p,Count * sizeof(char));
+    int Count2;
+    cin >> Count2;
+    p = (char*)realloc(p,Count2 * sizeof(char));
 
     cout << "\nМасив наразі має такий вигляд:\n";
-    for (int i = 0; i < Count; i++) {
+    for (int i = Count; i < Count2; i++) {
+        p[i] = (rand() % 25) + 97;
+    }
+
+    for (int i = 0; i < Count2; i++) {
         cout << p[i] << " ";
     }
 
     free(p);
 }
+
